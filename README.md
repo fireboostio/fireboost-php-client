@@ -85,6 +85,12 @@ $response = $api->publicGetCache($clientId, 'cache_key');
 var_dump($response->getResult()[0]);
 ```
 
+### Request read and write statistic data
+```PHP
+$response = $api->getTrackingData();
+var_dump($response->getResult());
+```
+
 ## LICENSE
 
 This project is licensed under the MIT License. See the [LICENSE](https://github.com/fireboostio/php-client/blob/main/LICENSE) file for details.
