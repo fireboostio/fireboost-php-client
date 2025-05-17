@@ -1,6 +1,6 @@
 <?php
 /**
- * LoginInputTest
+ * InlineResponse200Test
  *
  * PHP version 7.3
  *
@@ -31,15 +31,15 @@ namespace FireboostIO\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * LoginInputTest Class Doc Comment
+ * InlineResponse200Test Class Doc Comment
  *
  * @category    Class
- * @description LoginInput
+ * @description InlineResponse200
  * @package     FireboostIO
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class LoginInputTest extends TestCase
+class InlineResponse200Test extends TestCase
 {
 
     /**
@@ -71,27 +71,18 @@ class LoginInputTest extends TestCase
     }
 
     /**
-     * Test "LoginInput"
+     * Test "InlineResponse200"
      */
-    public function testLoginInput()
+    public function testInlineResponse200()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "project"
+     * Test attribute "data"
      */
-    public function testPropertyProject()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "encripted_api_key"
-     */
-    public function testPropertyEncriptedApiKey()
+    public function testPropertyData()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
