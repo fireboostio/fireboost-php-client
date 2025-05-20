@@ -1,6 +1,6 @@
 <?php
 /**
- * LoginInputTest
+ * InlineResponse200StatisticDataValueTest
  *
  * PHP version 7.3
  *
@@ -31,15 +31,15 @@ namespace FireboostIO\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * LoginInputTest Class Doc Comment
+ * InlineResponse200StatisticDataValueTest Class Doc Comment
  *
  * @category    Class
- * @description LoginInput
+ * @description InlineResponse200StatisticDataValue
  * @package     FireboostIO
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class LoginInputTest extends TestCase
+class InlineResponse200StatisticDataValueTest extends TestCase
 {
 
     /**
@@ -71,27 +71,45 @@ class LoginInputTest extends TestCase
     }
 
     /**
-     * Test "LoginInput"
+     * Test "InlineResponse200StatisticDataValue"
      */
-    public function testLoginInput()
+    public function testInlineResponse200StatisticDataValue()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "project"
+     * Test attribute "key"
      */
-    public function testPropertyProject()
+    public function testPropertyKey()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "encripted_api_key"
+     * Test attribute "api_key_id"
      */
-    public function testPropertyEncriptedApiKey()
+    public function testPropertyApiKeyId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "read_value"
+     */
+    public function testPropertyReadValue()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "write_value"
+     */
+    public function testPropertyWriteValue()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

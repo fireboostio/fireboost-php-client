@@ -1,6 +1,6 @@
 <?php
 /**
- * LoginInput
+ * InlineResponse200Data
  *
  * PHP version 7.3
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \FireboostIO\ObjectSerializer;
 
 /**
- * LoginInput Class Doc Comment
+ * InlineResponse200Data Class Doc Comment
  *
  * @category Class
  * @package  FireboostIO
@@ -42,7 +42,7 @@ use \FireboostIO\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
+class InlineResponse200Data implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'LoginInput';
+    protected static $openAPIModelName = 'inline_response_200_data';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,8 +59,8 @@ class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'project' => 'string',
-        'encripted_api_key' => 'string'
+        'period' => 'float',
+        'statistic_data' => '\FireboostIO\Model\InlineResponse200StatisticData'
     ];
 
     /**
@@ -71,8 +71,8 @@ class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'project' => null,
-        'encripted_api_key' => null
+        'period' => null,
+        'statistic_data' => null
     ];
 
     /**
@@ -102,8 +102,8 @@ class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'project' => 'project',
-        'encripted_api_key' => 'encriptedApiKey'
+        'period' => 'period',
+        'statistic_data' => 'statisticData'
     ];
 
     /**
@@ -112,8 +112,8 @@ class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'project' => 'setProject',
-        'encripted_api_key' => 'setEncriptedApiKey'
+        'period' => 'setPeriod',
+        'statistic_data' => 'setStatisticData'
     ];
 
     /**
@@ -122,8 +122,8 @@ class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'project' => 'getProject',
-        'encripted_api_key' => 'getEncriptedApiKey'
+        'period' => 'getPeriod',
+        'statistic_data' => 'getStatisticData'
     ];
 
     /**
@@ -183,8 +183,8 @@ class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['project'] = $data['project'] ?? null;
-        $this->container['encripted_api_key'] = $data['encripted_api_key'] ?? null;
+        $this->container['period'] = $data['period'] ?? null;
+        $this->container['statistic_data'] = $data['statistic_data'] ?? null;
     }
 
     /**
@@ -196,11 +196,11 @@ class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['project'] === null) {
-            $invalidProperties[] = "'project' can't be null";
+        if ($this->container['period'] === null) {
+            $invalidProperties[] = "'period' can't be null";
         }
-        if ($this->container['encripted_api_key'] === null) {
-            $invalidProperties[] = "'encripted_api_key' can't be null";
+        if ($this->container['statistic_data'] === null) {
+            $invalidProperties[] = "'statistic_data' can't be null";
         }
         return $invalidProperties;
     }
@@ -218,49 +218,49 @@ class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets project
+     * Gets period
      *
-     * @return string
+     * @return float
      */
-    public function getProject()
+    public function getPeriod()
     {
-        return $this->container['project'];
+        return $this->container['period'];
     }
 
     /**
-     * Sets project
+     * Sets period
      *
-     * @param string $project project
+     * @param float $period period
      *
      * @return self
      */
-    public function setProject($project)
+    public function setPeriod($period)
     {
-        $this->container['project'] = $project;
+        $this->container['period'] = $period;
 
         return $this;
     }
 
     /**
-     * Gets encripted_api_key
+     * Gets statistic_data
      *
-     * @return string
+     * @return \FireboostIO\Model\InlineResponse200StatisticData
      */
-    public function getEncriptedApiKey()
+    public function getStatisticData()
     {
-        return $this->container['encripted_api_key'];
+        return $this->container['statistic_data'];
     }
 
     /**
-     * Sets encripted_api_key
+     * Sets statistic_data
      *
-     * @param string $encripted_api_key encripted_api_key
+     * @param \FireboostIO\Model\InlineResponse200StatisticData $statistic_data statistic_data
      *
      * @return self
      */
-    public function setEncriptedApiKey($encripted_api_key)
+    public function setStatisticData($statistic_data)
     {
-        $this->container['encripted_api_key'] = $encripted_api_key;
+        $this->container['statistic_data'] = $statistic_data;
 
         return $this;
     }

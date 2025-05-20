@@ -1,6 +1,6 @@
 <?php
 /**
- * LoginInput
+ * InlineResponse200
  *
  * PHP version 7.3
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \FireboostIO\ObjectSerializer;
 
 /**
- * LoginInput Class Doc Comment
+ * InlineResponse200 Class Doc Comment
  *
  * @category Class
  * @package  FireboostIO
@@ -42,7 +42,7 @@ use \FireboostIO\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
+class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'LoginInput';
+    protected static $openAPIModelName = 'inline_response_200';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,8 +59,7 @@ class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'project' => 'string',
-        'encripted_api_key' => 'string'
+        'data' => '\FireboostIO\Model\InlineResponse200Data[]'
     ];
 
     /**
@@ -71,8 +70,7 @@ class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'project' => null,
-        'encripted_api_key' => null
+        'data' => null
     ];
 
     /**
@@ -102,8 +100,7 @@ class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'project' => 'project',
-        'encripted_api_key' => 'encriptedApiKey'
+        'data' => 'data'
     ];
 
     /**
@@ -112,8 +109,7 @@ class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'project' => 'setProject',
-        'encripted_api_key' => 'setEncriptedApiKey'
+        'data' => 'setData'
     ];
 
     /**
@@ -122,8 +118,7 @@ class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'project' => 'getProject',
-        'encripted_api_key' => 'getEncriptedApiKey'
+        'data' => 'getData'
     ];
 
     /**
@@ -183,8 +178,7 @@ class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['project'] = $data['project'] ?? null;
-        $this->container['encripted_api_key'] = $data['encripted_api_key'] ?? null;
+        $this->container['data'] = $data['data'] ?? null;
     }
 
     /**
@@ -196,11 +190,8 @@ class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['project'] === null) {
-            $invalidProperties[] = "'project' can't be null";
-        }
-        if ($this->container['encripted_api_key'] === null) {
-            $invalidProperties[] = "'encripted_api_key' can't be null";
+        if ($this->container['data'] === null) {
+            $invalidProperties[] = "'data' can't be null";
         }
         return $invalidProperties;
     }
@@ -218,49 +209,25 @@ class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets project
+     * Gets data
      *
-     * @return string
+     * @return \FireboostIO\Model\InlineResponse200Data[]
      */
-    public function getProject()
+    public function getData()
     {
-        return $this->container['project'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets project
+     * Sets data
      *
-     * @param string $project project
+     * @param \FireboostIO\Model\InlineResponse200Data[] $data data
      *
      * @return self
      */
-    public function setProject($project)
+    public function setData($data)
     {
-        $this->container['project'] = $project;
-
-        return $this;
-    }
-
-    /**
-     * Gets encripted_api_key
-     *
-     * @return string
-     */
-    public function getEncriptedApiKey()
-    {
-        return $this->container['encripted_api_key'];
-    }
-
-    /**
-     * Sets encripted_api_key
-     *
-     * @param string $encripted_api_key encripted_api_key
-     *
-     * @return self
-     */
-    public function setEncriptedApiKey($encripted_api_key)
-    {
-        $this->container['encripted_api_key'] = $encripted_api_key;
+        $this->container['data'] = $data;
 
         return $this;
     }

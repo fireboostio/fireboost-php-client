@@ -1,6 +1,6 @@
 <?php
 /**
- * LoginInput
+ * InlineResponse200StatisticDataValue
  *
  * PHP version 7.3
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \FireboostIO\ObjectSerializer;
 
 /**
- * LoginInput Class Doc Comment
+ * InlineResponse200StatisticDataValue Class Doc Comment
  *
  * @category Class
  * @package  FireboostIO
@@ -42,7 +42,7 @@ use \FireboostIO\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
+class InlineResponse200StatisticDataValue implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'LoginInput';
+    protected static $openAPIModelName = 'inline_response_200_statisticData_value';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,8 +59,10 @@ class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'project' => 'string',
-        'encripted_api_key' => 'string'
+        'key' => 'string',
+        'api_key_id' => 'string',
+        'read_value' => 'float',
+        'write_value' => 'float'
     ];
 
     /**
@@ -71,8 +73,10 @@ class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'project' => null,
-        'encripted_api_key' => null
+        'key' => null,
+        'api_key_id' => null,
+        'read_value' => null,
+        'write_value' => null
     ];
 
     /**
@@ -102,8 +106,10 @@ class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'project' => 'project',
-        'encripted_api_key' => 'encriptedApiKey'
+        'key' => 'key',
+        'api_key_id' => 'apiKeyId',
+        'read_value' => 'readValue',
+        'write_value' => 'writeValue'
     ];
 
     /**
@@ -112,8 +118,10 @@ class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'project' => 'setProject',
-        'encripted_api_key' => 'setEncriptedApiKey'
+        'key' => 'setKey',
+        'api_key_id' => 'setApiKeyId',
+        'read_value' => 'setReadValue',
+        'write_value' => 'setWriteValue'
     ];
 
     /**
@@ -122,8 +130,10 @@ class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'project' => 'getProject',
-        'encripted_api_key' => 'getEncriptedApiKey'
+        'key' => 'getKey',
+        'api_key_id' => 'getApiKeyId',
+        'read_value' => 'getReadValue',
+        'write_value' => 'getWriteValue'
     ];
 
     /**
@@ -183,8 +193,10 @@ class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['project'] = $data['project'] ?? null;
-        $this->container['encripted_api_key'] = $data['encripted_api_key'] ?? null;
+        $this->container['key'] = $data['key'] ?? null;
+        $this->container['api_key_id'] = $data['api_key_id'] ?? null;
+        $this->container['read_value'] = $data['read_value'] ?? null;
+        $this->container['write_value'] = $data['write_value'] ?? null;
     }
 
     /**
@@ -196,11 +208,17 @@ class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['project'] === null) {
-            $invalidProperties[] = "'project' can't be null";
+        if ($this->container['key'] === null) {
+            $invalidProperties[] = "'key' can't be null";
         }
-        if ($this->container['encripted_api_key'] === null) {
-            $invalidProperties[] = "'encripted_api_key' can't be null";
+        if ($this->container['api_key_id'] === null) {
+            $invalidProperties[] = "'api_key_id' can't be null";
+        }
+        if ($this->container['read_value'] === null) {
+            $invalidProperties[] = "'read_value' can't be null";
+        }
+        if ($this->container['write_value'] === null) {
+            $invalidProperties[] = "'write_value' can't be null";
         }
         return $invalidProperties;
     }
@@ -218,49 +236,97 @@ class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets project
+     * Gets key
      *
      * @return string
      */
-    public function getProject()
+    public function getKey()
     {
-        return $this->container['project'];
+        return $this->container['key'];
     }
 
     /**
-     * Sets project
+     * Sets key
      *
-     * @param string $project project
+     * @param string $key key
      *
      * @return self
      */
-    public function setProject($project)
+    public function setKey($key)
     {
-        $this->container['project'] = $project;
+        $this->container['key'] = $key;
 
         return $this;
     }
 
     /**
-     * Gets encripted_api_key
+     * Gets api_key_id
      *
      * @return string
      */
-    public function getEncriptedApiKey()
+    public function getApiKeyId()
     {
-        return $this->container['encripted_api_key'];
+        return $this->container['api_key_id'];
     }
 
     /**
-     * Sets encripted_api_key
+     * Sets api_key_id
      *
-     * @param string $encripted_api_key encripted_api_key
+     * @param string $api_key_id api_key_id
      *
      * @return self
      */
-    public function setEncriptedApiKey($encripted_api_key)
+    public function setApiKeyId($api_key_id)
     {
-        $this->container['encripted_api_key'] = $encripted_api_key;
+        $this->container['api_key_id'] = $api_key_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets read_value
+     *
+     * @return float
+     */
+    public function getReadValue()
+    {
+        return $this->container['read_value'];
+    }
+
+    /**
+     * Sets read_value
+     *
+     * @param float $read_value read_value
+     *
+     * @return self
+     */
+    public function setReadValue($read_value)
+    {
+        $this->container['read_value'] = $read_value;
+
+        return $this;
+    }
+
+    /**
+     * Gets write_value
+     *
+     * @return float
+     */
+    public function getWriteValue()
+    {
+        return $this->container['write_value'];
+    }
+
+    /**
+     * Sets write_value
+     *
+     * @param float $write_value write_value
+     *
+     * @return self
+     */
+    public function setWriteValue($write_value)
+    {
+        $this->container['write_value'] = $write_value;
 
         return $this;
     }
