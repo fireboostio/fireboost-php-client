@@ -122,7 +122,7 @@ class DefaultApi
      *
      * @throws \FireboostIO\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \FireboostIO\Model\GetOutput|\FireboostIO\Model\InlineResponse401|\FireboostIO\Model\InlineResponse404
+     * @return \FireboostIO\Model\GetOutput|\FireboostIO\Model\InlineResponse401|\FireboostIO\Model\InlineResponse404|\FireboostIO\Model\InlineResponse423
      */
     public function getCache($cache_key)
     {
@@ -137,7 +137,7 @@ class DefaultApi
      *
      * @throws \FireboostIO\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \FireboostIO\Model\GetOutput|\FireboostIO\Model\InlineResponse401|\FireboostIO\Model\InlineResponse404, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FireboostIO\Model\GetOutput|\FireboostIO\Model\InlineResponse401|\FireboostIO\Model\InlineResponse404|\FireboostIO\Model\InlineResponse423, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCacheWithHttpInfo($cache_key)
     {
@@ -215,6 +215,18 @@ class DefaultApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 423:
+                    if ('\FireboostIO\Model\InlineResponse423' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\FireboostIO\Model\InlineResponse423', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\FireboostIO\Model\GetOutput';
@@ -252,6 +264,14 @@ class DefaultApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\FireboostIO\Model\InlineResponse404',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 423:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FireboostIO\Model\InlineResponse423',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -432,7 +452,7 @@ class DefaultApi
      *
      * @throws \FireboostIO\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \FireboostIO\Model\InlineResponse200|\FireboostIO\Model\InlineResponse401|\FireboostIO\Model\InlineResponse404
+     * @return \FireboostIO\Model\InlineResponse200|\FireboostIO\Model\InlineResponse401|\FireboostIO\Model\InlineResponse404|\FireboostIO\Model\InlineResponse423
      */
     public function getTrackingData()
     {
@@ -446,7 +466,7 @@ class DefaultApi
      *
      * @throws \FireboostIO\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \FireboostIO\Model\InlineResponse200|\FireboostIO\Model\InlineResponse401|\FireboostIO\Model\InlineResponse404, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FireboostIO\Model\InlineResponse200|\FireboostIO\Model\InlineResponse401|\FireboostIO\Model\InlineResponse404|\FireboostIO\Model\InlineResponse423, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTrackingDataWithHttpInfo()
     {
@@ -524,6 +544,18 @@ class DefaultApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 423:
+                    if ('\FireboostIO\Model\InlineResponse423' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\FireboostIO\Model\InlineResponse423', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\FireboostIO\Model\InlineResponse200';
@@ -561,6 +593,14 @@ class DefaultApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\FireboostIO\Model\InlineResponse404',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 423:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FireboostIO\Model\InlineResponse423',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -998,32 +1038,30 @@ class DefaultApi
     /**
      * Operation publicGetCache
      *
-     * @param  string $project project (required)
      * @param  string $cache_key cache_key (required)
      *
      * @throws \FireboostIO\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \FireboostIO\Model\GetOutput|\FireboostIO\Model\InlineResponse401|\FireboostIO\Model\InlineResponse404
+     * @return \FireboostIO\Model\GetOutput|\FireboostIO\Model\InlineResponse401|\FireboostIO\Model\InlineResponse404|\FireboostIO\Model\InlineResponse423
      */
-    public function publicGetCache($project, $cache_key)
+    public function publicGetCache($cache_key)
     {
-        list($response) = $this->publicGetCacheWithHttpInfo($project, $cache_key);
+        list($response) = $this->publicGetCacheWithHttpInfo($cache_key);
         return $response;
     }
 
     /**
      * Operation publicGetCacheWithHttpInfo
      *
-     * @param  string $project (required)
      * @param  string $cache_key (required)
      *
      * @throws \FireboostIO\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \FireboostIO\Model\GetOutput|\FireboostIO\Model\InlineResponse401|\FireboostIO\Model\InlineResponse404, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FireboostIO\Model\GetOutput|\FireboostIO\Model\InlineResponse401|\FireboostIO\Model\InlineResponse404|\FireboostIO\Model\InlineResponse423, HTTP status code, HTTP response headers (array of strings)
      */
-    public function publicGetCacheWithHttpInfo($project, $cache_key)
+    public function publicGetCacheWithHttpInfo($cache_key)
     {
-        $request = $this->publicGetCacheRequest($project, $cache_key);
+        $request = $this->publicGetCacheRequest($cache_key);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1097,6 +1135,18 @@ class DefaultApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 423:
+                    if ('\FireboostIO\Model\InlineResponse423' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\FireboostIO\Model\InlineResponse423', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\FireboostIO\Model\GetOutput';
@@ -1138,6 +1188,14 @@ class DefaultApi
                     );
                     $e->setResponseObject($data);
                     break;
+                case 423:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FireboostIO\Model\InlineResponse423',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -1146,15 +1204,14 @@ class DefaultApi
     /**
      * Operation publicGetCacheAsync
      *
-     * @param  string $project (required)
      * @param  string $cache_key (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function publicGetCacheAsync($project, $cache_key)
+    public function publicGetCacheAsync($cache_key)
     {
-        return $this->publicGetCacheAsyncWithHttpInfo($project, $cache_key)
+        return $this->publicGetCacheAsyncWithHttpInfo($cache_key)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1165,16 +1222,15 @@ class DefaultApi
     /**
      * Operation publicGetCacheAsyncWithHttpInfo
      *
-     * @param  string $project (required)
      * @param  string $cache_key (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function publicGetCacheAsyncWithHttpInfo($project, $cache_key)
+    public function publicGetCacheAsyncWithHttpInfo($cache_key)
     {
         $returnType = '\FireboostIO\Model\GetOutput';
-        $request = $this->publicGetCacheRequest($project, $cache_key);
+        $request = $this->publicGetCacheRequest($cache_key);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1212,24 +1268,13 @@ class DefaultApi
     /**
      * Create request for operation 'publicGetCache'
      *
-     * @param  string $project (required)
      * @param  string $cache_key (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function publicGetCacheRequest($project, $cache_key)
+    public function publicGetCacheRequest($cache_key)
     {
-        // verify the required parameter 'project' is set
-        if ($project === null || (is_array($project) && count($project) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $project when calling publicGetCache'
-            );
-        }
-        if (strlen($project) < 3) {
-            throw new \InvalidArgumentException('invalid length for "$project" when calling DefaultApi.publicGetCache, must be bigger than or equal to 3.');
-        }
-
         // verify the required parameter 'cache_key' is set
         if ($cache_key === null || (is_array($cache_key) && count($cache_key) === 0)) {
             throw new \InvalidArgumentException(
@@ -1241,7 +1286,7 @@ class DefaultApi
         }
 
 
-        $resourcePath = '/public-cache/get/{project}/{cacheKey}';
+        $resourcePath = '/public-cache/get/{cacheKey}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1250,14 +1295,6 @@ class DefaultApi
 
 
 
-        // path params
-        if ($project !== null) {
-            $resourcePath = str_replace(
-                '{' . 'project' . '}',
-                ObjectSerializer::toPathValue($project),
-                $resourcePath
-            );
-        }
         // path params
         if ($cache_key !== null) {
             $resourcePath = str_replace(
@@ -1332,7 +1369,7 @@ class DefaultApi
      *
      * @throws \FireboostIO\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \FireboostIO\Model\SetOutput|\FireboostIO\Model\InlineResponse401
+     * @return \FireboostIO\Model\SetOutput|\FireboostIO\Model\InlineResponse401|\FireboostIO\Model\InlineResponse423
      */
     public function setCache($set_input)
     {
@@ -1347,7 +1384,7 @@ class DefaultApi
      *
      * @throws \FireboostIO\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \FireboostIO\Model\SetOutput|\FireboostIO\Model\InlineResponse401, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \FireboostIO\Model\SetOutput|\FireboostIO\Model\InlineResponse401|\FireboostIO\Model\InlineResponse423, HTTP status code, HTTP response headers (array of strings)
      */
     public function setCacheWithHttpInfo($set_input)
     {
@@ -1413,6 +1450,18 @@ class DefaultApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 423:
+                    if ('\FireboostIO\Model\InlineResponse423' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\FireboostIO\Model\InlineResponse423', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\FireboostIO\Model\SetOutput';
@@ -1442,6 +1491,14 @@ class DefaultApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\FireboostIO\Model\InlineResponse401',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 423:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FireboostIO\Model\InlineResponse423',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
