@@ -23,7 +23,7 @@ use FireboostIO\Model\LoginInput;
 
 $api = new DefaultApi();
 $response = $api->login(new LoginInput([
-    'client_id' => 'your_client_id',
+    'project' => 'your_project_id',
     'encrypted_api_key' => 'your_encrypted_api_key'
 ]));
 $jwt = $response->getJwtToken();
@@ -81,7 +81,7 @@ $response = $api->setCache(new SetInput([
 
 ### Read a Public Cache (Non-Secure Endpoint)
 ```PHP
-$response = $api->publicGetCache($clientId, 'cache_key');
+$response = $api->publicGetCache('cache_key');
 var_dump($response->getResult()[0]);
 ```
 
