@@ -122,7 +122,7 @@ class DefaultApi
      *
      * @throws \FireboostIO\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \FireboostIO\Model\GetOutput|\FireboostIO\Model\InlineResponse401|\FireboostIO\Model\InlineResponse404|\FireboostIO\Model\InlineResponse423
+     * @return object|\FireboostIO\Model\InlineResponse401|\FireboostIO\Model\InlineResponse404|\FireboostIO\Model\InlineResponse423
      */
     public function getCache($cache_key)
     {
@@ -137,7 +137,7 @@ class DefaultApi
      *
      * @throws \FireboostIO\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \FireboostIO\Model\GetOutput|\FireboostIO\Model\InlineResponse401|\FireboostIO\Model\InlineResponse404|\FireboostIO\Model\InlineResponse423, HTTP status code, HTTP response headers (array of strings)
+     * @return array of object|\FireboostIO\Model\InlineResponse401|\FireboostIO\Model\InlineResponse404|\FireboostIO\Model\InlineResponse423, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCacheWithHttpInfo($cache_key)
     {
@@ -180,14 +180,14 @@ class DefaultApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\FireboostIO\Model\GetOutput' === '\SplFileObject') {
+                    if ('object' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\FireboostIO\Model\GetOutput', []),
+                        ObjectSerializer::deserialize($content, 'object', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -229,7 +229,7 @@ class DefaultApi
                     ];
             }
 
-            $returnType = '\FireboostIO\Model\GetOutput';
+            $returnType = 'object';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -247,7 +247,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\FireboostIO\Model\GetOutput',
+                        'object',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -309,7 +309,7 @@ class DefaultApi
      */
     public function getCacheAsyncWithHttpInfo($cache_key)
     {
-        $returnType = '\FireboostIO\Model\GetOutput';
+        $returnType = 'object';
         $request = $this->getCacheRequest($cache_key);
 
         return $this->client
@@ -1042,7 +1042,7 @@ class DefaultApi
      *
      * @throws \FireboostIO\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \FireboostIO\Model\GetOutput|\FireboostIO\Model\InlineResponse401|\FireboostIO\Model\InlineResponse404|\FireboostIO\Model\InlineResponse423
+     * @return object|\FireboostIO\Model\InlineResponse401|\FireboostIO\Model\InlineResponse404|\FireboostIO\Model\InlineResponse423
      */
     public function publicGetCache($cache_key)
     {
@@ -1057,7 +1057,7 @@ class DefaultApi
      *
      * @throws \FireboostIO\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \FireboostIO\Model\GetOutput|\FireboostIO\Model\InlineResponse401|\FireboostIO\Model\InlineResponse404|\FireboostIO\Model\InlineResponse423, HTTP status code, HTTP response headers (array of strings)
+     * @return array of object|\FireboostIO\Model\InlineResponse401|\FireboostIO\Model\InlineResponse404|\FireboostIO\Model\InlineResponse423, HTTP status code, HTTP response headers (array of strings)
      */
     public function publicGetCacheWithHttpInfo($cache_key)
     {
@@ -1100,14 +1100,14 @@ class DefaultApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\FireboostIO\Model\GetOutput' === '\SplFileObject') {
+                    if ('object' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\FireboostIO\Model\GetOutput', []),
+                        ObjectSerializer::deserialize($content, 'object', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1149,7 +1149,7 @@ class DefaultApi
                     ];
             }
 
-            $returnType = '\FireboostIO\Model\GetOutput';
+            $returnType = 'object';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1167,7 +1167,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\FireboostIO\Model\GetOutput',
+                        'object',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1229,7 +1229,7 @@ class DefaultApi
      */
     public function publicGetCacheAsyncWithHttpInfo($cache_key)
     {
-        $returnType = '\FireboostIO\Model\GetOutput';
+        $returnType = 'object';
         $request = $this->publicGetCacheRequest($cache_key);
 
         return $this->client
