@@ -80,15 +80,6 @@ class LoginInputTest extends TestCase
     }
 
     /**
-     * Test attribute "project"
-     */
-    public function testPropertyProject()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "encripted_api_key"
      */
     public function testPropertyEncriptedApiKey()

@@ -23,7 +23,6 @@ use FireboostIO\Model\LoginInput;
 
 $api = new DefaultApi();
 $response = $api->login(new LoginInput([
-    'project' => 'your_project_id',
     'encrypted_api_key' => 'your_encrypted_api_key'
 ]));
 $jwt = $response->getJwtToken();

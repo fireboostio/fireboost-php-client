@@ -59,7 +59,6 @@ class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'project' => 'string',
         'encripted_api_key' => 'string'
     ];
 
@@ -71,7 +70,6 @@ class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'project' => null,
         'encripted_api_key' => null
     ];
 
@@ -102,7 +100,6 @@ class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'project' => 'project',
         'encripted_api_key' => 'encriptedApiKey'
     ];
 
@@ -112,7 +109,6 @@ class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'project' => 'setProject',
         'encripted_api_key' => 'setEncriptedApiKey'
     ];
 
@@ -122,7 +118,6 @@ class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'project' => 'getProject',
         'encripted_api_key' => 'getEncriptedApiKey'
     ];
 
@@ -183,7 +178,6 @@ class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['project'] = $data['project'] ?? null;
         $this->container['encripted_api_key'] = $data['encripted_api_key'] ?? null;
     }
 
@@ -196,9 +190,6 @@ class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['project'] === null) {
-            $invalidProperties[] = "'project' can't be null";
-        }
         if ($this->container['encripted_api_key'] === null) {
             $invalidProperties[] = "'encripted_api_key' can't be null";
         }
@@ -216,30 +207,6 @@ class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets project
-     *
-     * @return string
-     */
-    public function getProject()
-    {
-        return $this->container['project'];
-    }
-
-    /**
-     * Sets project
-     *
-     * @param string $project project
-     *
-     * @return self
-     */
-    public function setProject($project)
-    {
-        $this->container['project'] = $project;
-
-        return $this;
-    }
 
     /**
      * Gets encripted_api_key
