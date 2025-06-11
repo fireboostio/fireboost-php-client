@@ -366,7 +366,7 @@ class DefaultApi
         }
 
 
-        $resourcePath = '/cache/get/{cacheKey}';
+        $resourcePath = '/v1/cache/get/{cacheKey}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -682,7 +682,7 @@ class DefaultApi
     public function getTrackingDataRequest()
     {
 
-        $resourcePath = '/cache/get-tracking-data';
+        $resourcePath = '/v1/cache/get-tracking-data';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -961,7 +961,7 @@ class DefaultApi
             );
         }
 
-        $resourcePath = '/login';
+        $resourcePath = '/v1/login';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1286,7 +1286,7 @@ class DefaultApi
         }
 
 
-        $resourcePath = '/public-cache/get/{cacheKey}';
+        $resourcePath = '/v1/public-cache/get/{cacheKey}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1589,7 +1589,7 @@ class DefaultApi
             );
         }
 
-        $resourcePath = '/cache/set';
+        $resourcePath = '/v1/cache/set';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
