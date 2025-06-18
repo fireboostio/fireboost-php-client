@@ -60,8 +60,6 @@ class SetInput implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'cache_key' => 'string',
-        'store_id' => 'string',
-        'api_key' => 'string',
         'content' => 'mixed',
         'is_public' => 'bool'
     ];
@@ -75,8 +73,6 @@ class SetInput implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'cache_key' => null,
-        'store_id' => null,
-        'api_key' => null,
         'content' => null,
         'is_public' => null
     ];
@@ -109,8 +105,6 @@ class SetInput implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'cache_key' => 'cacheKey',
-        'store_id' => 'storeId',
-        'api_key' => 'apiKey',
         'content' => 'content',
         'is_public' => 'isPublic'
     ];
@@ -122,8 +116,6 @@ class SetInput implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'cache_key' => 'setCacheKey',
-        'store_id' => 'setStoreId',
-        'api_key' => 'setApiKey',
         'content' => 'setContent',
         'is_public' => 'setIsPublic'
     ];
@@ -135,8 +127,6 @@ class SetInput implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'cache_key' => 'getCacheKey',
-        'store_id' => 'getStoreId',
-        'api_key' => 'getApiKey',
         'content' => 'getContent',
         'is_public' => 'getIsPublic'
     ];
@@ -199,8 +189,6 @@ class SetInput implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->container['cache_key'] = $data['cache_key'] ?? null;
-        $this->container['store_id'] = $data['store_id'] ?? null;
-        $this->container['api_key'] = $data['api_key'] ?? null;
         $this->container['content'] = $data['content'] ?? null;
         $this->container['is_public'] = $data['is_public'] ?? null;
     }
@@ -216,12 +204,6 @@ class SetInput implements ModelInterface, ArrayAccess, \JsonSerializable
 
         if ($this->container['cache_key'] === null) {
             $invalidProperties[] = "'cache_key' can't be null";
-        }
-        if ($this->container['store_id'] === null) {
-            $invalidProperties[] = "'store_id' can't be null";
-        }
-        if ($this->container['api_key'] === null) {
-            $invalidProperties[] = "'api_key' can't be null";
         }
         if ($this->container['is_public'] === null) {
             $invalidProperties[] = "'is_public' can't be null";
@@ -261,54 +243,6 @@ class SetInput implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCacheKey($cache_key)
     {
         $this->container['cache_key'] = $cache_key;
-
-        return $this;
-    }
-
-    /**
-     * Gets store_id
-     *
-     * @return string
-     */
-    public function getStoreId()
-    {
-        return $this->container['store_id'];
-    }
-
-    /**
-     * Sets store_id
-     *
-     * @param string $store_id store_id
-     *
-     * @return self
-     */
-    public function setStoreId($store_id)
-    {
-        $this->container['store_id'] = $store_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets api_key
-     *
-     * @return string
-     */
-    public function getApiKey()
-    {
-        return $this->container['api_key'];
-    }
-
-    /**
-     * Sets api_key
-     *
-     * @param string $api_key api_key
-     *
-     * @return self
-     */
-    public function setApiKey($api_key)
-    {
-        $this->container['api_key'] = $api_key;
 
         return $this;
     }

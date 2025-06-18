@@ -1,6 +1,6 @@
 <?php
 /**
- * DefaultApi
+ * FireboostApi
  * PHP version 7.3
  *
  * @category Class
@@ -40,14 +40,14 @@ use FireboostIO\HeaderSelector;
 use FireboostIO\ObjectSerializer;
 
 /**
- * DefaultApi Class Doc Comment
+ * FireboostApi Class Doc Comment
  *
  * @category Class
  * @package  FireboostIO
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class DefaultApi
+class FireboostApi
 {
     /**
      * @var ClientInterface
@@ -113,6 +113,256 @@ class DefaultApi
     public function getConfig()
     {
         return $this->config;
+    }
+
+    /**
+     * Operation deleteCache
+     *
+     * @param  string $cache_key cache_key (required)
+     *
+     * @throws \FireboostIO\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function deleteCache($cache_key)
+    {
+        $this->deleteCacheWithHttpInfo($cache_key);
+    }
+
+    /**
+     * Operation deleteCacheWithHttpInfo
+     *
+     * @param  string $cache_key (required)
+     *
+     * @throws \FireboostIO\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteCacheWithHttpInfo($cache_key)
+    {
+        $request = $this->deleteCacheRequest($cache_key);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FireboostIO\Model\InlineResponse401',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FireboostIO\Model\InlineResponse404',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 423:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\FireboostIO\Model\InlineResponse423',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteCacheAsync
+     *
+     * @param  string $cache_key (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteCacheAsync($cache_key)
+    {
+        return $this->deleteCacheAsyncWithHttpInfo($cache_key)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteCacheAsyncWithHttpInfo
+     *
+     * @param  string $cache_key (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteCacheAsyncWithHttpInfo($cache_key)
+    {
+        $returnType = '';
+        $request = $this->deleteCacheRequest($cache_key);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteCache'
+     *
+     * @param  string $cache_key (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deleteCacheRequest($cache_key)
+    {
+        // verify the required parameter 'cache_key' is set
+        if ($cache_key === null || (is_array($cache_key) && count($cache_key) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $cache_key when calling deleteCache'
+            );
+        }
+        if (strlen($cache_key) < 3) {
+            throw new \InvalidArgumentException('invalid length for "$cache_key" when calling FireboostApi.deleteCache, must be bigger than or equal to 3.');
+        }
+
+
+        $resourcePath = '/v1/cache/delete/{cacheKey}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($cache_key !== null) {
+            $resourcePath = str_replace(
+                '{' . 'cacheKey' . '}',
+                ObjectSerializer::toPathValue($cache_key),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
     }
 
     /**
@@ -362,7 +612,7 @@ class DefaultApi
             );
         }
         if (strlen($cache_key) < 3) {
-            throw new \InvalidArgumentException('invalid length for "$cache_key" when calling DefaultApi.getCache, must be bigger than or equal to 3.');
+            throw new \InvalidArgumentException('invalid length for "$cache_key" when calling FireboostApi.getCache, must be bigger than or equal to 3.');
         }
 
 
@@ -1282,7 +1532,7 @@ class DefaultApi
             );
         }
         if (strlen($cache_key) < 3) {
-            throw new \InvalidArgumentException('invalid length for "$cache_key" when calling DefaultApi.publicGetCache, must be bigger than or equal to 3.');
+            throw new \InvalidArgumentException('invalid length for "$cache_key" when calling FireboostApi.publicGetCache, must be bigger than or equal to 3.');
         }
 
 

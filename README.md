@@ -18,10 +18,10 @@ To authenticate and obtain a JWT token for further communication, use the follow
 #### Without the Encryptor Repository
 
 ```PHP
-use FireboostIO\Api\DefaultApi;
+use FireboostIO\Api\FireboostApi;
 use FireboostIO\Model\LoginInput;
 
-$api = new DefaultApi();
+$api = new FireboostApi();
 $response = $api->login(new LoginInput([
     'encrypted_api_key' => 'your_encrypted_api_key'
 ]));
@@ -31,14 +31,14 @@ $jwt = $response->getJwtToken();
 #### With the Encryptor Repository
 
 ```PHP
-use FireboostIO\Api\DefaultApi;
+use FireboostIO\Api\FireboostApi;
 use Fireboostio\Encryptor\CredentialExtractor;
 use FireboostIO\Model\LoginInput;
 
 $encryptor = new CredentialExtractor();
 $loginInputData = $encryptor->getLoginInputData($fireboostioKey);
 
-$api = new DefaultApi();
+$api = new FireboostApi();
 $response = $api->login(new LoginInput($loginInputData));
 $jwt = $response->getJwtToken();
 ```
@@ -54,7 +54,7 @@ $config = new Configuration();
 $config->setAccessToken($jwt);
 $config->setApiKeyPrefix('bearer', 'Bearer');
 
-$api = new FireboostIO\Api\DefaultApi(null, $config);
+$api = new FireboostIO\Api\FireboostApi(null, $config);
 ```
 
 ## API Examples
@@ -71,8 +71,6 @@ use FireboostIO\Model\SetInput;
 
 $response = $api->setCache(new SetInput([
     'cache_key' => 'test.com/news/post/1234',
-    'store_id' => 'test',
-    'api_key' => 'test',
     'content' => json_encode(['whatever' => 'you like']),
     'is_public' => true // or false
 ]));
