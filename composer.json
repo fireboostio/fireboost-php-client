@@ -1,5 +1,5 @@
 {
-    "name": "fireboostio/php-client",
+    "name": "fireboostio/fireboost-php-client",
     "description": "This package is a php client to the fireboostio api.",
     "keywords": [
         "fireboostio",
