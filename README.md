@@ -6,7 +6,7 @@ This PHP client allows you to communicate with the Fireboost API. For login cred
 
 You can install the PHP client via Composer:
 ```bash
-composer require fireboostio/php-client
+composer require fireboostio/fireboost-php-client
 ```
 
 ## Usage
