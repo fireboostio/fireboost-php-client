@@ -59,7 +59,7 @@ class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'encripted_api_key' => 'string'
+        'encrypted_api_key' => 'string'
     ];
 
     /**
@@ -70,7 +70,7 @@ class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'encripted_api_key' => null
+        'encrypted_api_key' => null
     ];
 
     /**
@@ -100,7 +100,7 @@ class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'encripted_api_key' => 'encriptedApiKey'
+        'encrypted_api_key' => 'encryptedApiKey'
     ];
 
     /**
@@ -109,7 +109,7 @@ class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'encripted_api_key' => 'setEncriptedApiKey'
+        'encrypted_api_key' => 'setEncryptedApiKey'
     ];
 
     /**
@@ -118,7 +118,7 @@ class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'encripted_api_key' => 'getEncriptedApiKey'
+        'encrypted_api_key' => 'getEncryptedApiKey'
     ];
 
     /**
@@ -178,7 +178,7 @@ class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['encripted_api_key'] = $data['encripted_api_key'] ?? null;
+        $this->container['encrypted_api_key'] = $data['encrypted_api_key'] ?? null;
     }
 
     /**
@@ -190,8 +190,8 @@ class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['encripted_api_key'] === null) {
-            $invalidProperties[] = "'encripted_api_key' can't be null";
+        if ($this->container['encrypted_api_key'] === null) {
+            $invalidProperties[] = "'encrypted_api_key' can't be null";
         }
         return $invalidProperties;
     }
@@ -209,25 +209,25 @@ class LoginInput implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets encripted_api_key
+     * Gets encrypted_api_key
      *
      * @return string
      */
-    public function getEncriptedApiKey()
+    public function getEncryptedApiKey()
     {
-        return $this->container['encripted_api_key'];
+        return $this->container['encrypted_api_key'];
     }
 
     /**
-     * Sets encripted_api_key
+     * Sets encrypted_api_key
      *
-     * @param string $encripted_api_key encripted_api_key
+     * @param string $encrypted_api_key encrypted_api_key
      *
      * @return self
      */
-    public function setEncriptedApiKey($encripted_api_key)
+    public function setEncryptedApiKey($encrypted_api_key)
     {
-        $this->container['encripted_api_key'] = $encripted_api_key;
+        $this->container['encrypted_api_key'] = $encrypted_api_key;
 
         return $this;
     }

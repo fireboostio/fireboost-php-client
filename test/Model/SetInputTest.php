@@ -89,24 +89,6 @@ class SetInputTest extends TestCase
     }
 
     /**
-     * Test attribute "store_id"
-     */
-    public function testPropertyStoreId()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "api_key"
-     */
-    public function testPropertyApiKey()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "content"
      */
     public function testPropertyContent()
