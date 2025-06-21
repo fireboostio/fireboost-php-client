@@ -1,6 +1,6 @@
 <?php
 /**
- * DefaultApiTest
+ * FireboostApiTest
  * PHP version 7.3
  *
  * @category Class
@@ -33,14 +33,14 @@ use \FireboostIO\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
 
 /**
- * DefaultApiTest Class Doc Comment
+ * FireboostApiTest Class Doc Comment
  *
  * @category Class
  * @package  FireboostIO
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class DefaultApiTest extends TestCase
+class FireboostApiTest extends TestCase
 {
 
     /**
@@ -69,6 +69,18 @@ class DefaultApiTest extends TestCase
      */
     public static function tearDownAfterClass(): void
     {
+    }
+
+    /**
+     * Test case for deleteCache
+     *
+     * .
+     *
+     */
+    public function testDeleteCache()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
     }
 
     /**
