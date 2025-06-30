@@ -82,7 +82,16 @@ $response = $api->publicGetCache('cache_key');
 var_dump($response->getResult()[0]);
 ```
 
+### Delete a Cache (Secure Endpoint)
+```PHP
+$response = $api->deleteCache('cache_key');
+```
+
+### Delete All Cache (Secure Endpoint)
+```PHP
+$response = $api->deleteAllCache();
+```
+
 ## LICENSE
 
 This project is licensed under the MIT License. See the [LICENSE](https://github.com/fireboostio/php-client/blob/main/LICENSE) file for details.
-
