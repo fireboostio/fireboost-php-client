@@ -92,6 +92,24 @@ $response = $api->deleteCache('cache_key');
 $response = $api->deleteAllCache();
 ```
 
+### Get All Cache (Secure Endpoint)
+```PHP
+// Get the first page of cache entries
+$response = $api->getAllCache();
+
+// Get subsequent pages using the cursor
+$cursor = $response->getCursor();
+if ($cursor) {
+    $nextPageResponse = $api->getAllCache($cursor);
+}
+
+// Access the cache entries
+$cacheEntries = $response->getKeys();
+foreach ($cacheEntries as $entry) {
+    var_dump($entry);
+}
+```
+
 ## LICENSE
 
 This project is licensed under the MIT License. See the [LICENSE](https://github.com/fireboostio/php-client/blob/main/LICENSE) file for details.
